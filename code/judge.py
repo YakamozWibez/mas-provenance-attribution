@@ -40,20 +40,36 @@ SYSTEM = (
 )
 
 
-def render_for_judge(messages, header0):
+NUM_TOK = re.compile(r"\$?\d[\d,]*(?:\.\d+)?%?(?:/\d+)?|[+\-*/×÷=()]")
+
+
+def strip_text(text):
+    """Pre-registration 02: keep only numbers and arithmetic symbols, drop every word
+    (the labels that say what a value is)."""
+    toks = NUM_TOK.findall(text or "")
+    out = " ".join(toks).strip()
+    return out if any(ch.isdigit() for ch in out) else "(no number)"
+
+
+def render_for_judge(messages, header0, strip=False):
     out = []
     for m, msg in enumerate(messages):
         out.append(f"--- {header0 if m == 0 else f'MESSAGE FROM AGENT {m}'} ---")
         for e in msg["elements"]:
-            t = f"[{e['id']}] FINAL: {e['text']}" if e.get("final") else f"[{e['id']}] {e['text']}"
+            text = e["text"]
+            if strip and m > 0:
+                if e["id"].endswith(".R"):
+                    continue  # reasoning paragraphs restate what values mean: removed
+                text = strip_text(text)
+            t = f"[{e['id']}] FINAL: {text}" if e.get("final") else f"[{e['id']}] {text}"
             if m > 0 and e.get("sources"):
                 t += f"   (declared sources: {', '.join(e['sources'])})"
             out.append(t)
     return "\n".join(out)
 
 
-def user_prompt(run, correct, header0):
-    return (render_for_judge(run["messages"], header0)
+def user_prompt(run, correct, header0, strip=False):
+    return (render_for_judge(run["messages"], header0, strip)
             + f"\n\nFINAL ANSWER GIVEN: {run.get('final')}\nCORRECT ANSWER: {correct}\n\n"
             + "Which element first introduced the decisive error? JSON only.")
 
@@ -190,6 +206,7 @@ def main():
     ap.add_argument("--price-out", type=float, default=None)
     ap.add_argument("--list", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--strip", action="store_true", help="pre-registration 02: agent messages reduced to numbers")
     a = ap.parse_args()
 
     if a.list:
@@ -203,7 +220,7 @@ def main():
     rows = [json.loads(l) for l in open(a.results)]
     answers, header0 = load_answers(a.data)
     todo = list(items(rows))
-    out_path = a.results.replace(".jsonl", "") + f"_judge_{a.model.replace('/', '-')}.jsonl"
+    out_path = a.results.replace(".jsonl", "") + f"_judge_{a.model.replace('/', '-')}" + ("_strip" if a.strip else "") + ".jsonl"
     done = set()
     if os.path.exists(out_path):
         done = {(j["task"], j["cond"], j["kind"]) for j in map(json.loads, open(out_path))}
@@ -217,7 +234,7 @@ def main():
         if not (pin > 0 and pout > 0):
             raise SystemExit("Prezzi del modello non trovati: passa --price-in e --price-out (USD per milione di token).")
         print(f"prezzi {pin} / {pout} USD per milione di token | tetto {a.max_cost} USD")
-        est_in = sum(len(user_prompt(I["run"], answers.get(r["task"]), header0)) / 4 + 250 for r, k, I in todo)
+        est_in = sum(len(user_prompt(I["run"], answers.get(r["task"]), header0, a.strip)) / 4 + 250 for r, k, I in todo)
         est = (est_in * pin + len(todo) * a.max_tokens * pout) / 1e6
         print(f"stima massima: ~{est_in/1e6:.2f}M token in, costo <= ~{est:.2f} USD")
         if a.dry_run:
@@ -231,7 +248,7 @@ def main():
 
     def one(item):
         r, k, I = item
-        u = user_prompt(I["run"], answers.get(r["task"]), header0)
+        u = user_prompt(I["run"], answers.get(r["task"]), header0, a.strip)
         if a.llm == "mock":
             llm.truth[u] = (int(I["agent"]), I["element"])
         with lock:

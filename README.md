@@ -14,7 +14,7 @@ Author: Emme, Independent Scholar, Italy. Exploratory work in progress.
 | Pilot 1 (50 GSM8K) | STOP on criteria 4 and 5 |
 | Pilot 2 (50 new GSM8K) | STOP on criterion 1 (ceiling, $P_{\text{base}} = 0.92$) |
 | LLM judge on pilot 2 | sources do not help a competent attributor; the benefit seen with the deterministic rule was an artefact |
-| Next | test of the theorem's prediction (non-injective case), pre-registered in `prereg/02_...` before it is run |
+| Pre-registration 02 | test of the theorem's prediction (non-injective case): `prereg/02_non_injective.md`, committed before the run |
 
 The result is written up in [`docs/pilot2_result.md`](docs/pilot2_result.md).
 
