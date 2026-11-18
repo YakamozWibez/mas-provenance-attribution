@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-18",
+  "family": "math",
+  "data": "gsm8k:data/gsm8k_test.jsonl",
+  "llm": "openai",
+  "model": "Qwen/Qwen3.5-9B",
+  "n": 50,
+  "prompts_hash": "7f09f833c18153cf",
+  "config_hash": "278657fba8c66185",
+  "config": {
+    "_nota": "Pilota 2: Qwen/Qwen3.5-9B su Together, ragionamento spento. 3 ripetizioni con maggioranza; criterio 4 = attribuzioni sbagliate per falso allarme prima del punto iniettato; criterio 5 solo sulla condizione base; problemi del pilota 1 esclusi (data/used_ids.txt).",
+    "seed": 20261118,
+    "n_tasks_per_family": 50,
+    "reps": 3,
+    "kinds": [
+      "U",
+      "M"
+    ],
+    "max_attempts": 3,
+    "max_tokens": 600,
+    "temperature": 0.0,
+    "delta": 0.05,
+    "gate": {
+      "p_min": 0.2,
+      "p_max": 0.8,
+      "yield_min": 0.5,
+      "coverage_min": 0.7,
+      "retest_max": 0.1,
+      "invalid_max": 0.1,
+      "early_miss_max": 0.1
+    },
+    "budget": {
+      "max_calls": 6000,
+      "max_cost_usd": 10,
+      "price_in_per_mtok": 0.17,
+      "price_out_per_mtok": 0.25,
+      "assumed_out_tokens_per_call": 250
+    },
+    "hotpot_types": [
+      "bridge"
+    ],
+    "extra_body": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "visibility": "spec",
+    "workers": 8,
+    "exclude_ids_file": "data/used_ids.txt"
+  }
+}
