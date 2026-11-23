@@ -1,0 +1,41 @@
+{
+  "_nota": "Pre-registration 03: 100 new GSM8K problems (pilots 1 and 2 excluded), same model, prompts and settings as pilot 2. Purpose: attribution only (no gate).",
+  "seed": 20261123,
+  "n_tasks_per_family": 100,
+  "reps": 3,
+  "kinds": [
+    "U",
+    "M"
+  ],
+  "max_attempts": 3,
+  "max_tokens": 600,
+  "temperature": 0.0,
+  "delta": 0.05,
+  "gate": {
+    "p_min": 0.2,
+    "p_max": 0.8,
+    "yield_min": 0.5,
+    "coverage_min": 0.7,
+    "retest_max": 0.1,
+    "invalid_max": 0.1,
+    "early_miss_max": 0.1
+  },
+  "budget": {
+    "max_calls": 12000,
+    "max_cost_usd": 3,
+    "price_in_per_mtok": 0.17,
+    "price_out_per_mtok": 0.25,
+    "assumed_out_tokens_per_call": 250
+  },
+  "hotpot_types": [
+    "bridge"
+  ],
+  "extra_body": {
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  },
+  "visibility": "spec",
+  "workers": 8,
+  "exclude_ids_file": "used_ids_p1_p2.txt"
+}

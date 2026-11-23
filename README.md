@@ -15,6 +15,7 @@ Author: Emme, Independent Scholar, Italy. Exploratory work in progress.
 | Pilot 2 (50 new GSM8K) | STOP on criterion 1 (ceiling, $P_{\text{base}} = 0.92$) |
 | LLM judge on pilot 2 | sources do not help a competent attributor; the benefit seen with the deterministic rule was an artefact |
 | Pre-registration 02 | test of the theorem's prediction (non-injective case): `prereg/02_non_injective.md`, committed before the run |
+| Pre-registration 03 | does trace ambiguity $k$ predict the value of sources? 100 new problems: `prereg/03_ambiguity_bound.md` |
 
 The result is written up in [`docs/pilot2_result.md`](docs/pilot2_result.md).
 
