@@ -1,0 +1,22 @@
+GIUDICE LLM (attribuzione post-hoc, tutto in una volta)
+cond           tipo    n   agente  elemento   regola  invalidi
+libera            U   78    0.974     0.974    0.885     0.000
+libera            M   29    0.966     0.966    0.000     0.000
+libera+prov       U   86    0.977     0.977    0.930     0.000
+libera+prov       M   53    1.000     1.000    0.943     0.000
+strutt            U   79    0.962     0.962    0.924     0.000
+strutt            M   51    0.941     0.941    0.020     0.000
+strutt+prov       U   74    1.000     1.000    0.919     0.000
+strutt+prov       M   50    1.000     1.000    0.860     0.000
+
+EFFETTO DELLE FONTI SUL GIUDICE (elemento giusto: con fonti - senza; IC 95% bootstrap per compito)
+  U libera   +0.029  [+0.000, +0.074]  (compiti appaiati 68)
+  U strutt   +0.031  [+0.000, +0.078]  (compiti appaiati 64)
+  M libera   +0.050  [+0.000, +0.150]  (compiti appaiati 20)
+  M strutt   +0.056  [+0.000, +0.139]  (compiti appaiati 36)
+
+EFFETTO DELLA STRUTTURA SUL GIUDICE (strutt - libera, senza fonti)
+  U          -0.048  [-0.113, +0.000]  (compiti appaiati 62)
+  M          -0.062  [-0.188, +0.000]  (compiti appaiati 16)
+
+SPESA GIUDICE ~0.215 USD (questa esecuzione)

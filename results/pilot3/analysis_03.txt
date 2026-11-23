@@ -1,0 +1,29 @@
+
+=== M ===
+  pairs (stripped, both structures pooled): 56
+  H2b observed effect of sources   +0.196 [+0.036, +0.357]
+      predicted from k             +0.256
+  H2  observed - predicted         -0.060 [-0.217, +0.095]
+      -> H2b REPLICATED; H2 INCONCLUSIVE
+  H1  J - bound (stripped, no sources)  -0.390 [-0.496, -0.283]  (n=80; J=0.362, bound=0.752)
+  H3  J(k=1) - J(k>=2)             +0.257 [+0.051, +0.459]  (n 41 vs 39)
+  desc. stripped libera+prov  J=0.566  bound=1.000
+  desc. stripped strutt+prov  J=0.620  bound=0.990
+  desc. effect of sources, full traces +0.054 [+0.000, +0.125]
+
+=== U ===
+  pairs (stripped, both structures pooled): 132
+  H2b observed effect of sources   +0.038 [-0.008, +0.091]
+      predicted from k             +0.023
+  H2  observed - predicted         +0.015 [-0.034, +0.064]
+  H1  J - bound (stripped, no sources)  -0.051 [-0.096, -0.010]  (n=157; J=0.924, bound=0.975)
+  H3  J(k=1) - J(k>=2)             +0.051 [-0.106, +0.369]  (n 149 vs 8)
+  desc. stripped libera+prov  J=0.965  bound=1.000
+  desc. stripped strutt+prov  J=0.973  bound=1.000
+  desc. effect of sources, full traces +0.030 [+0.008, +0.061]
+
+Decision rule (for M, see prereg/03):
+  H2b: lower bound > 0 -> pre-registration 02 replicated
+  H2 : interval inside [-0.2, +0.2] -> SUPPORTED; interval excludes 0 -> CONTRADICTED; else INCONCLUSIVE
+  H1 : lower bound > 0 -> bound VIOLATED (the trace carries information k ignores)
+  H3 : lower bound > 0 -> ambiguity predicts which cases are missed
