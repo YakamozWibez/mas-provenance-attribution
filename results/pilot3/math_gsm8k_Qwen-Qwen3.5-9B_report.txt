@@ -1,0 +1,32 @@
+PER CONDIZIONE
+cond                   n          P    invalid retest_fli false_alar early_miss tokens_per    yield_U        A_U        n_U    yield_M        A_M        n_M   coverage   fidelity fid_partia
+libera               100      0.880      0.000      0.133      0.341      0.093   1124.500      0.595      0.885         78      0.674      0.000         29          -          -          -
+libera+prov          100      0.900      0.030      0.133      0.367      0.043   1644.440      0.677      0.930         86      0.841      0.943         53      0.870      0.959      0.925
+strutt               100      0.830      0.010      0.120      0.458      0.062   1584.070      0.687      0.924         79      0.797      0.020         51          -          -          -
+strutt+prov          100      0.760      0.010      0.173      0.329      0.065   1950.080      0.740      0.919         74      0.833      0.860         50      0.957      0.968      0.927
+
+UTILITA DELLE FONTI (A con fonti - A senza; IC 95% bootstrap per compito)
+  U libera     +0.046  [-0.034, +0.131]
+  U strutt     -0.005  [-0.068, +0.057]
+  M libera     +0.943  [+0.873, +1.000]
+  M strutt     +0.840  [+0.725, +0.935]
+
+PSI E COMPITI NECESSARI
+  libera vs libera+prov        psi=0.180  n~617
+  libera vs strutt             psi=0.250  n~856
+  libera vs strutt+prov        psi=0.200  n~685
+  libera+prov vs strutt        psi=0.230  n~788
+  libera+prov vs strutt+prov   psi=0.240  n~822
+  strutt vs strutt+prov        psi=0.210  n~719
+
+GATE
+  1 niente soffitto/pavimento (0.2<=P_base<=0.8): False
+  2 errori decisivi (resa >= 0.5): True
+  3 copertura fonti >= 0.7: True
+  4a regola: attribuzioni sbagliate per falso allarme prima del punto iniettato <= 0.1: True
+  4b regola: controllo a mano su 20 casi: DA FARE A MANO (manual_check_20.txt)
+  5 stabilita della condizione base (cambi tra ripetizioni <= 0.1): False
+  6 fattibilita: servono ~856 compiti per famiglia (psi max 0.250); budget in compiti non fissato
+  (validita) output invalidi < 0.1: True
+
+CHIAMATE 4908 | TOKEN IN 1749402 | TOKEN OUT 982765 | COSTO ~0.54 USD

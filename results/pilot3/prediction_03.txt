@@ -1,0 +1,25 @@
+cases: 500
+
+=== M ===
+  bound 1/k  full  libera       n=29   0.966
+  bound 1/k  full  libera+prov  n=53   1.000
+  bound 1/k  full  strutt       n=51   1.000
+  bound 1/k  full  strutt+prov  n=50   1.000
+  PREDICTED effect of sources, full: +0.009 (pairs 56)
+  bound 1/k  strip libera       n=29   0.856
+  bound 1/k  strip libera+prov  n=53   1.000
+  bound 1/k  strip strutt       n=51   0.693
+  bound 1/k  strip strutt+prov  n=50   0.990
+  PREDICTED effect of sources, strip: +0.256 (pairs 56)
+
+=== U ===
+  bound 1/k  full  libera       n=78   0.987
+  bound 1/k  full  libera+prov  n=86   1.000
+  bound 1/k  full  strutt       n=79   1.000
+  bound 1/k  full  strutt+prov  n=74   1.000
+  PREDICTED effect of sources, full: +0.008 (pairs 132)
+  bound 1/k  strip libera       n=78   0.955
+  bound 1/k  strip libera+prov  n=86   1.000
+  bound 1/k  strip strutt       n=79   0.994
+  bound 1/k  strip strutt+prov  n=74   1.000
+  PREDICTED effect of sources, strip: +0.023 (pairs 132)
