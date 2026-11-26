@@ -16,7 +16,9 @@ Author: Emme, Independent Scholar, Italy. Exploratory work in progress.
 | LLM judge on pilot 2 | sources do not help a competent attributor; the benefit seen with the deterministic rule was an artefact |
 | Pre-registration 02 | test of the theorem's prediction (non-injective case): `prereg/02_non_injective.md`, committed before the run |
 | Pre-registration 02 result | sources help when words are stripped: +0.355 [+0.161, +0.548] |
+| Pre-registration 03 | does trace ambiguity $k$ predict the value of sources? `prereg/03_ambiguity_bound.md`, committed before the run |
 | Pre-registration 03 result (100 new problems) | replicated (+0.196); ambiguity $k$ identifies hard cases (confirmed); $k$ predicting the size of the effect: inconclusive |
+| Pre-registration 04 | 400 new problems: replication, filtered ambiguity $k^*$, judge without the correct answer, performance cost: `prereg/04_replication_kstar_noanswer.md`, committed before the run |
 
 Results: [`docs/pilot2_result.md`](docs/pilot2_result.md) (pilots 1–2) and [`docs/results_prereg02_03.md`](docs/results_prereg02_03.md) (pre-registrations 02–03).
 

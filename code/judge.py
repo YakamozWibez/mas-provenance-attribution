@@ -68,9 +68,10 @@ def render_for_judge(messages, header0, strip=False):
     return "\n".join(out)
 
 
-def user_prompt(run, correct, header0, strip=False):
+def user_prompt(run, correct, header0, strip=False, no_answer=False):
+    answer = "" if no_answer else f"\nCORRECT ANSWER: {correct}"
     return (render_for_judge(run["messages"], header0, strip)
-            + f"\n\nFINAL ANSWER GIVEN: {run.get('final')}\nCORRECT ANSWER: {correct}\n\n"
+            + f"\n\nFINAL ANSWER GIVEN: {run.get('final')}{answer}\n\n"
             + "Which element first introduced the decisive error? JSON only.")
 
 
@@ -207,6 +208,7 @@ def main():
     ap.add_argument("--list", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--strip", action="store_true", help="pre-registration 02: agent messages reduced to numbers")
+    ap.add_argument("--no-answer", action="store_true", help="pre-registration 04: the correct answer is not shown")
     a = ap.parse_args()
 
     if a.list:
@@ -220,7 +222,7 @@ def main():
     rows = [json.loads(l) for l in open(a.results)]
     answers, header0 = load_answers(a.data)
     todo = list(items(rows))
-    out_path = a.results.replace(".jsonl", "") + f"_judge_{a.model.replace('/', '-')}" + ("_strip" if a.strip else "") + ".jsonl"
+    out_path = a.results.replace(".jsonl", "") + f"_judge_{a.model.replace('/', '-')}" + ("_strip" if a.strip else "") + ("_noans" if a.no_answer else "") + ".jsonl"
     done = set()
     if os.path.exists(out_path):
         done = {(j["task"], j["cond"], j["kind"]) for j in map(json.loads, open(out_path))}
@@ -234,7 +236,7 @@ def main():
         if not (pin > 0 and pout > 0):
             raise SystemExit("Prezzi del modello non trovati: passa --price-in e --price-out (USD per milione di token).")
         print(f"prezzi {pin} / {pout} USD per milione di token | tetto {a.max_cost} USD")
-        est_in = sum(len(user_prompt(I["run"], answers.get(r["task"]), header0, a.strip)) / 4 + 250 for r, k, I in todo)
+        est_in = sum(len(user_prompt(I["run"], answers.get(r["task"]), header0, a.strip, a.no_answer)) / 4 + 250 for r, k, I in todo)
         est = (est_in * pin + len(todo) * a.max_tokens * pout) / 1e6
         print(f"stima massima: ~{est_in/1e6:.2f}M token in, costo <= ~{est:.2f} USD")
         if a.dry_run:
@@ -248,7 +250,7 @@ def main():
 
     def one(item):
         r, k, I = item
-        u = user_prompt(I["run"], answers.get(r["task"]), header0, a.strip)
+        u = user_prompt(I["run"], answers.get(r["task"]), header0, a.strip, a.no_answer)
         if a.llm == "mock":
             llm.truth[u] = (int(I["agent"]), I["element"])
         with lock:
