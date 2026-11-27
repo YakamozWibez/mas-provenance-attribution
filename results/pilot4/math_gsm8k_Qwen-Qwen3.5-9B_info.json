@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-26",
+  "family": "math",
+  "data": "gsm8k:data/gsm8k_test.jsonl",
+  "llm": "openai",
+  "model": "Qwen/Qwen3.5-9B",
+  "n": 400,
+  "prompts_hash": "7f09f833c18153cf",
+  "config_hash": "a6aa3e1e8faf98f6",
+  "config": {
+    "_nota": "Pre-registration 04: 400 new GSM8K problems (pilots 1-3 excluded), same model, prompts and settings as pilots 2-3. No gate.",
+    "seed": 20261126,
+    "n_tasks_per_family": 400,
+    "reps": 3,
+    "kinds": [
+      "U",
+      "M"
+    ],
+    "max_attempts": 3,
+    "max_tokens": 600,
+    "temperature": 0.0,
+    "delta": 0.05,
+    "gate": {
+      "p_min": 0.2,
+      "p_max": 0.8,
+      "yield_min": 0.5,
+      "coverage_min": 0.7,
+      "retest_max": 0.1,
+      "invalid_max": 0.1,
+      "early_miss_max": 0.1
+    },
+    "budget": {
+      "max_calls": 25000,
+      "max_cost_usd": 6,
+      "price_in_per_mtok": 0.17,
+      "price_out_per_mtok": 0.25,
+      "assumed_out_tokens_per_call": 250
+    },
+    "hotpot_types": [
+      "bridge"
+    ],
+    "extra_body": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "visibility": "spec",
+    "workers": 8,
+    "exclude_ids_file": "used_ids_p1_p2_p3.txt"
+  }
+}

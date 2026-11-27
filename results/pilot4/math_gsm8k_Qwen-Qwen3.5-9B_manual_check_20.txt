@@ -1,0 +1,415 @@
+Per ogni caso: segui a mano da dove nasce l'errore e scrivi se la regola ha ragione (SI/NO).
+
+=== gsm8k_test_0349 | libera+prov | tipo M | iniettato M1.E3 ($100 -> 4) | regola -> M1.E5 (support-check) | giusto? ___
+  [M0.E1] Every month, Madeline has to buy food, treats, and medicine for her dog.
+  [M0.E2] Food costs $25 per week.
+  [M0.E3] Treats cost $20 per month.
+  [M0.E4] Medicine costs $100 per month.
+  [M0.E5] How much money does Madeline spend on her dog per year if there are 4 weeks in a month?
+  [M1.E1] Madeline spends $25 on food per week according to M0.E2.
+  [M1.E2] Madeline spends $20 on treats per month according to M0.E3.
+  [M1.E3] Madeline spends 4 on medicine per month according to M0.E4.
+  [M1.E4] The task states there are 4 weeks in a month according to M0.E5.
+  [M1.E5] To find the total annual cost, I need to multiply the weekly food cost by 4 to get the monthly food cost, then add the monthly treat cost and the monthly medicine cost to get the total monthly cost, and finally multiply that total monthly cost by 12 to get the yearly cost.
+  [M2.E1] To find the monthly food cost, I multiply the weekly food cost of $25 by 4 weeks , which equals 25 * 4 = 100.  <- M1.E1, M1.E4
+  [M2.E2] Next, I add the monthly treat cost of $20  and the monthly medicine cost of $4  to the monthly food cost of $100, resulting in 100 + 20 + 4 = 124 for the total monthly cost.  <- M1.E2, M1.E3
+  [M2.E3] Finally, to find the total annual cost, I multiply the total monthly cost of $124 by 12 months, which equals 124 * 12 = 1488.
+  [M3.E1] Agent 1 correctly identified the costs for food, treats, and medicine from the source data and established the necessary conversion factors, specifically that there are 4 weeks in a month .  <- M0.E2, M0.E3, M0.E4, M0.E5
+  [M3.E2] Agent 1 also outlined the correct logical sequence to calculate the total annual cost by first determining the monthly food expense, summing the monthly expenses, and then multiplying by 12 .  <- M1.E5
+  [M3.E3] Agent 2 accurately executed these calculations, multiplying the weekly food cost of $25 by 4 to get $100 , adding the $20 treat cost and $4 medicine cost to reach a total monthly cost of $124 , and finally multiplying $124 by 12 to arrive at the annual total of $1488 .  <- M0.E2, M0.E5, M0.E3, M0.E4, M0.E5
+  [M3.E4] The arithmetic performed by Agent 2 is verified as correct based on the provided inputs.
+  [M3.F] 1488  <- M0.E2, M0.E3, M0.E4, M0.E5
+
+=== gsm8k_test_1125 | strutt | tipo U | iniettato M1.E2 (10 -> 98) | regola -> M1.E2 (support-check) | giusto? ___
+  [M0.E1] John packs M&M in small bags to eat.
+  [M0.E2] He buys 3 large bags weighing 10 ounces each.
+  [M0.E3] If an ounce of M&M has 30 M&M in it how many small bags can he make if he puts 10 in each small bag?
+  [M1.R] The task requires identifying all numerical quantities provided in the text and determining the mathematical operations needed to solve the problem. I will list each quantity with its unit and context, then specify the sequence of operations (multiplication, division) required to find the total number of small bags.
+  [M1.E1] 3 large bags (quantity of bags purchased)
+  [M1.E2] 98 ounces (weight per large bag)
+  [M1.E3] 30 M&M (count per ounce of M&M)
+  [M1.E4] 10 M&M (count per small bag)
+  [M2.R] To find the total number of small bags, I first need to calculate the total weight of M&Ms in ounces by multiplying the number of large bags by the weight per large bag. Then, I will convert the total weight into the total count of M&Ms by multiplying by the count per ounce. Finally, I will divide the total count of M&Ms by the count per small bag to determine the number of small bags required.
+  [M2.E1] Total weight in ounces = 3 * 98 = 294
+  [M2.E2] Total count of M&Ms = 294 * 30 = 8820
+  [M2.E3] Total number of small bags = 8820 / 10 = 882
+  [M3.R] Agent 1 correctly identified the four key quantities: 3 large bags, 98 ounces per large bag, 30 M&Ms per ounce, and 10 M&Ms per small bag. Agent 2 correctly applied the sequence of operations: first multiplying the number of bags by the weight per bag to get total ounces (3 * 98 = 294), then multiplying by the count per ounce to get the total number of M&Ms (294 * 30 = 8820), and finally dividing by the count per small bag to find the number of small bags (8820 / 10 = 882). The calculations are accurate and the logic holds.
+  [M3.E1] 3 large bags
+  [M3.E2] 98 ounces per large bag
+  [M3.E3] 30 M&Ms per ounce
+  [M3.E4] 10 M&Ms per small bag
+  [M3.E5] Total weight = 294 ounces
+  [M3.E6] Total M&Ms = 8820
+  [M3.E7] Total small bags = 882
+  [M3.F] 882
+
+=== gsm8k_test_0079 | libera | tipo U | iniettato M1.E1 (30 -> 58) | regola -> M1.E1 (support-check) | giusto? ___
+  [M0.E1] John adopts a dog.
+  [M0.E2] He takes the dog to the groomer, which costs $100.
+  [M0.E3] The groomer offers him a 30% discount for being a new customer.
+  [M0.E4] How much does the grooming cost?
+  [M1.E1] The task provides a base cost of 100 dollars for grooming, a discount rate of 58 percent, and requires calculating the final cost after applying the discount to the base price.
+  [M2.E1] To find the final cost, I first calculate the discount amount by multiplying the base cost of 100 dollars by the discount rate of 58 percent, which equals 58 dollars.
+  [M2.E2] Then I subtract the discount amount of 58 dollars from the base cost of 100 dollars, resulting in a final cost of 42 dollars.
+  [M3.E1] Agent 1 correctly identified the base cost as 100 dollars and the discount rate as 58 percent.
+  [M3.E2] Agent 2 accurately calculated the discount amount by multiplying 100 by 0.58 to get 58 dollars.
+  [M3.E3] Agent 2 then correctly subtracted this discount from the base cost to arrive at a final price of 42 dollars.
+  [M3.E4] The calculations are verified and correct.
+  [M3.F] 42
+
+=== gsm8k_test_0931 | strutt | tipo M | iniettato M1.E1 (100 -> 10) | regola -> M2.E5 (support-check) | giusto? ___
+  [M0.E1] The combined age of Peter, Paul and Jean is 100 years old.
+  [M0.E2] Find the age of Peter knowing that Paul is 10 years older than John and that Peter’s age is equal to the sum of Paul and John's age.
+  [M1.R] The task provides specific numerical values for ages and relationships between them. I need to list every explicit quantity given in the text (the total age and the specific age difference) and identify the operations required to solve for Peter's age based on the system of equations implied by the text.
+  [M1.E1] Total combined age of Peter, Paul, and Jean = 10 years (Operation: Summation/Equation setup)
+  [M1.E2] Age difference between Paul and John = 10 years (Operation: Subtraction/Addition relation)
+  [M1.E3] Relationship between Peter's age and the sum of Paul and John's ages (Operation: Addition/Equation setup)
+  [M1.E4] Note: The name "Jean" appears in the total sum but "John" appears in the specific conditions; assuming they refer to the same person for the calculation (Operation: Variable identification)
+  [M2.R] Agent 1 has identified the key variables and relationships: the total age of the three individuals is 10, the difference between Paul and John is 10, and Peter's age is related to the sum of Paul and John's ages. To solve for Peter's age, I must first establish the equation for the total age. Then, I need to determine the individual ages of Paul and John based on their difference and the total sum. Finally, I will use the relationship between Peter and the others to find Peter's specific age.
+  [M2.E1] Total Age = Peter + Paul + John = 10
+  [M2.E2] Paul - John = 10
+  [M2.E3] Peter = Paul + John
+  [M2.E4] Substitute (E3) into (E1): Peter + (Paul + John) = 10 -> Peter + Peter = 10
+  [M2.E5] 2 * Peter = 10
+  [M2.E6] Peter = 10 / 2
+  [M2.E7] Peter = 5
+  [M3.R] Agent 1 correctly identified the variables and the assumption that "Jean" and "John" refer to the same person. Agent 2 correctly set up the system of equations: Total Age = 10, Paul - John = 10, and Peter = Paul + John. Agent 2 then substituted the expression for Peter into the total age equation, resulting in 2 * Peter = 10, and solved for Peter = 5. The logic is sound, the arithmetic is correct, and the steps are clearly derived from the provided constraints. No errors were found in the previous agents' work.
+  [M3.E1] Total combined age of Peter, Paul, and John is 10 years.
+  [M3.E2] The difference between Paul's age and John's age is 10 years.
+  [M3.E3] Peter's age is equal to the sum of Paul's and John's ages.
+  [M3.E4] Substituting Peter's age (Paul + John) into the total sum equation (Peter + Paul + John = 10) results in 2 * Peter = 10.
+  [M3.E5] Solving 2 * Peter = 10 yields Peter = 5.
+  [M3.F] 5
+
+=== gsm8k_test_0086 | strutt | tipo U | iniettato M1.E3 (3 -> 99) | regola -> M1.E3 (support-check) | giusto? ___
+  [M0.E1] Greg has an alarm set to ring three times a day as a reminder.
+  [M0.E2] When the alarm goes off, it continues to ring until Greg turns it off.
+  [M0.E3] The first time it went off today, it rang four times.
+  [M0.E4] The second time it went off, it rang for three times as long as the first time.
+  [M0.E5] The third time, it rang for half as long as the second time.
+  [M0.E6] How many times did the alarm ring in all?
+  [M1.R] The task asks for the total number of times the alarm rang. To find this, I need to identify the specific counts provided for each instance of the alarm ringing and then determine the mathematical operation required to combine them. The text explicitly states the count for the first instance, provides a multiplier for the second instance relative to the first, and provides a fraction for the third instance relative to the second. The final step is a summation.
+  [M1.E1] 3 (The number of times the alarm is set to ring per day, though the specific counts for today are given in subsequent items)
+  [M1.E2] 4 (The number of times the alarm rang the first time)
+  [M1.E3] 99 (The multiplier for the second time compared to the first time)
+  [M1.E4] 1/2 (The fraction representing the third time compared to the second time)
+  [M1.E5] Addition (The operation needed to sum the total rings from all three instances)
+  [M2.R] The first instance of the alarm rang 4 times. The second instance is 99 times the first, so I need to calculate 4 * 99. The third instance is half of the second, so I need to calculate (4 * 99) * 1/2. Finally, I need to sum the counts from all three instances: 4 + (4 * 99) + ((4 * 99) * 1/2).
+  [M2.E1] First instance count = 4
+  [M2.E2] Second instance count = 4 * 99 = 396
+  [M2.E3] Third instance count = 396 * 1/2 = 198
+  [M2.E4] Total rings = 4 + 396 + 198 = 598
+  [M3.R] Agent 1 correctly identified the input values: 4 for the first instance, 99 as the multiplier for the second, and 1/2 as the fraction for the third. Agent 2 correctly performed the calculations: the second instance is 4 * 99 = 396, the third instance is 396 * 0.5 = 198, and the sum is 4 + 396 + 198 = 598. The logic and arithmetic are sound.
+  [M3.E1] First instance count = 4
+  [M3.E2] Second instance count = 396
+  [M3.E3] Third instance count = 198
+  [M3.E4] Total rings = 598
+  [M3.F] 598
+
+=== gsm8k_test_0292 | libera | tipo M | iniettato M2.E4 (75 -> 8) | regola -> M2.E1 (support-check) | giusto? ___
+  [M0.E1] Susan earns $5 every 10 minutes for an online task she does.
+  [M0.E2] If she works between 8 a.m. and 11 a.m. and pauses in between for half an hour, how much money does she earn for the online task?
+  [M1.E1] The task states that Susan earns 5 dollars every 10 minutes.
+  [M1.E2] The work period starts at 8 a.m. and ends at 11 a.m., which is a total duration of 3 hours.
+  [M1.E3] There is a pause in the middle of the work period that lasts for half an hour.
+  [M1.E4] To find the total earnings, you need to subtract the pause duration from the total work duration to get the actual time worked, convert that time into minutes, divide the total minutes by 10 to find the number of earning intervals, and then multiply the number of intervals by 5 dollars.
+  [M2.E1] The total work duration is 3 hours, which equals 180 minutes.
+  [M2.E2] Subtracting the 30-minute pause gives 150 minutes of actual work time.
+  [M2.E3] Dividing 150 minutes by 10 minutes per interval results in 15 earning intervals.
+  [M2.E4] Multiplying 15 intervals by 5 dollars per interval yields a total of 8 dollars.
+  [M3.E1] Agent 1 correctly identified the total duration of 3 hours, the 30-minute pause, and the necessary steps to calculate earnings based on the rate of 5 dollars per 10 minutes.
+  [M3.E2] Agent 2 accurately converted 3 hours to 180 minutes, subtracted the 30-minute break to get 150 minutes of work time, divided by 10 to find 15 intervals, and multiplied by 5 to arrive at 8 dollars.
+  [M3.E3] The calculations performed by both agents are consistent and mathematically sound.
+  [M3.F] 8
+
+=== gsm8k_test_0857 | libera+prov | tipo U | iniettato M1.E3 (6000 -> 5926) | regola -> M1.E3 (support-check) | giusto? ___
+  [M0.E1] The amount of water passing through a river at one point in time is 4000 gallons.
+  [M0.E2] After a day of heavy rain, the amount of water passing through the river doubles at the same point.
+  [M0.E3] If the volume of water passing through the river at that point increases by 6000 gallons on the third day, calculate the total amount of water passing through the river at that point.
+  [M1.E1] The initial amount of water passing through the river is 4000 gallons .  <- M0.E1
+  [M1.E2] The amount of water doubles after a day of heavy rain .  <- M0.E2
+  [M1.E3] The volume of water increases by 5926 gallons on the third day .  <- M0.E3
+  [M1.E4] The operations needed are multiplication to find the doubled amount, addition to find the total increase on the third day, and summation to calculate the final total amount.
+  [M2.E1] The initial amount of water is 4000 gallons .  <- M1.E1
+  [M2.E2] After a day of heavy rain, the amount doubles, so 4000 * 2 = 8000 gallons .  <- M1.E1, M1.E2
+  [M2.E3] On the third day, the volume increases by 5926 gallons, so 8000 + 5926 = 13926 gallons .  <- M1.E2, M1.E3
+  [M2.E4] The final total amount of water is 13926 gallons .  <- M1.E1, M1.E2, M1.E3, M1.E4
+  [M3.E1] Agent 1 correctly identifies the initial amount of water as 4000 gallons  and states that it doubles after a day of heavy rain .  <- M1.E1, M1.E2
+  [M3.E2] Agent 1 also notes the increase of 5926 gallons on the third day  and outlines the necessary mathematical operations .  <- M1.E3, M1.E4
+  [M3.E3] Agent 2 accurately calculates the doubled amount as 8000 gallons by multiplying 4000 by 2  and then adds the 5926 gallon increase to reach a total of 13926 gallons .  <- M2.E2, M2.E3
+  [M3.E4] The final calculation performed by Agent 2 is correct based on the provided data .  <- M2.E4
+  [M3.F] 13926  <- M1.E1, M1.E2, M1.E3, M1.E4, M2.E2, M2.E3, M2.E4
+
+=== gsm8k_test_1145 | strutt+prov | tipo U | iniettato M1.E5 (12 -> 100) | regola -> M1.E5 (support-check) | giusto? ___
+  [M0.E1] Faraday owns a flower shop.
+  [M0.E2] He sells a sunflower that costs $2 each and a bouquet of sunflower that costs $8.
+  [M0.E3] If Faraday earned $26 from the sunflower and $56 from the bouquet per day, and if each bouquet has 12 sunflowers, how many sunflowers was Faraday able to sell after 3 days?
+  [M1.R] The task requires identifying all numerical quantities provided in the text and listing the mathematical operations needed to solve the problem. I will extract each value, state its meaning, and cite the specific source ID where it appears.
+  [M1.E1] Cost of a single sunflower is $2  <- M0.E2
+  [M1.E2] Cost of a bouquet of sunflowers is $8  <- M0.E2
+  [M1.E3] Total earnings from single sunflowers per day is $26  <- M0.E3
+  [M1.E4] Total earnings from bouquets per day is $56  <- M0.E3
+  [M1.E5] Number of sunflowers in one bouquet is 100  <- M0.E3
+  [M1.E6] Number of days is 3  <- M0.E3
+  [M1.E7] Operation needed: Divide total daily sunflower earnings by the cost per single sunflower to find daily single sunflower sales  <- M0.E2, M0.E3
+  [M1.E8] Operation needed: Divide total daily bouquet earnings by the cost per bouquet to find daily bouquet sales  <- M0.E2, M0.E3
+  [M1.E9] Operation needed: Multiply daily bouquet sales by the number of sunflowers per bouquet to find daily sunflowers sold in bouquets  <- M0.E3, M0.E5
+  [M1.E10] Operation needed: Add daily single sunflower sales and daily bouquet sunflower sales to find total daily sunflower sales
+  [M1.E11] Operation needed: Multiply total daily sunflower sales by the number of days to find total sunflowers sold  <- M0.E3
+  [M2.R] I will calculate the number of single sunflowers sold daily, then the number of sunflowers sold in bouquets daily, sum them for total daily sales, and finally multiply by the number of days to get the total.
+  [M2.E1] Daily single sunflower sales = $26 / $2 = 13  <- M1.E3, M1.E1
+  [M2.E2] Daily bouquet sales = $56 / $8 = 7  <- M1.E4, M1.E2
+  [M2.E3] Daily sunflowers in bouquets = 7 * 100 = 700  <- M1.E9, M1.E2, M1.E5
+  [M2.E4] Total daily sunflower sales = 13 + 700 = 713  <- M1.E10
+  [M2.E5] Total sunflowers sold = 713 * 3 = 2139  <- M1.E11, M1.E6
+  [M3.R] Agent 1 correctly identified all numerical values and the logical sequence of operations required to solve the problem. Agent 2 correctly executed these operations: dividing daily earnings by unit costs to find unit sales, multiplying bouquet sales by the count per bouquet, summing the single and bouquet sunflower counts, and finally multiplying by the number of days. The calculations are verified as follows: $26 / $2 = 13; $56 / $8 = 7; 7 * 100 = 700; 13 + 700 = 713; 713 * 3 = 2139. The final answer is 2139.
+  [M3.E1] Daily single sunflower sales count is 13  <- M1.E3, M1.E1, M2.E1
+  [M3.E2] Daily bouquet sales count is 7  <- M1.E4, M1.E2, M2.E2
+  [M3.E3] Daily sunflowers sold in bouquets is 700  <- M1.E5, M2.E3
+  [M3.E4] Total daily sunflower sales count is 713  <- M2.E4
+  [M3.E5] Total sunflowers sold over 3 days is 2139  <- M1.E6, M2.E5
+  [M3.F] 2139  <- M1.E1, M1.E2, M1.E3, M1.E4, M1.E5, M1.E6, M2.E1, M2.E2, M2.E3, M2.E4, M2.E5
+
+=== gsm8k_test_0894 | libera+prov | tipo U | iniettato M1.E1 (80 -> 39) | regola -> M1.E1 (support-check) | giusto? ___
+  [M0.E1] Last month, Tasha made $80 from selling lemonade and mowing lawns.
+  [M0.E2] The first week, she mowed Kamala's lawn thrice as many times as she did Joe's.
+  [M0.E3] The following week, she mowed Alba's lawn five times as she did Joe's.
+  [M0.E4] If Joe paid Tasha $6 for her work, how much did she make from lemonade sales?
+  [M1.E1] The total amount Tasha made last month is 39 dollars .  <- M0.E1
+  [M1.E2] The number of times Tasha mowed Kamala's lawn is three times the number of times she mowed Joe's lawn .  <- M0.E2
+  [M1.E3] The number of times Tasha mowed Alba's lawn is five times the number of times she mowed Joe's lawn .  <- M0.E3
+  [M1.E4] The amount Joe paid Tasha for her work is 6 dollars .  <- M0.E4
+  [M1.E5] The operation needed is to calculate the total earnings from mowing lawns by summing the payments for Kamala, Joe, and Alba based on the given ratios, and then subtract that total from the overall earnings to find the amount made from lemonade sales.
+  [M2.E1] The total amount Tasha made last month is 39 dollars .  <- M1.E1
+  [M2.E2] The amount Joe paid Tasha for her work is 6 dollars .  <- M1.E4
+  [M2.E3] The number of times Tasha mowed Kamala's lawn is three times the number of times she mowed Joe's lawn .  <- M1.E2
+  [M2.E4] The number of times Tasha mowed Alba's lawn is five times the number of times she mowed Joe's lawn .  <- M1.E3
+  [M2.E5] The operation needed is to calculate the total earnings from mowing lawns by summing the payments for Kamala, Joe, and Alba based on the given ratios, and then subtract that total from the overall earnings to find the amount made from lemonade sales .  <- M1.E5
+  [M2.E6] Since the payment for Joe is 6 dollars, the payment for Kamala is 3 times 6 dollars which equals 18 dollars, and the payment for Alba is 5 times 6 dollars which equals 30 dollars .  <- M1.E2, M1.E3, M1.E4
+  [M2.E7] The total earnings from mowing lawns is the sum of 6 dollars for Joe, 18 dollars for Kamala, and 30 dollars for Alba, which equals 54 dollars .  <- M1.E2, M1.E3, M1.E4
+  [M2.E8] However, the total amount Tasha made is only 39 dollars, which is less than the calculated mowing earnings of 54 dollars, indicating an inconsistency in the provided data or ratios .  <- M1.E1, M1.E2, M1.E3, M1.E4
+  [M3.E1] Agent 1 correctly identified the total earnings as 39 dollars  and the payment from Joe as 6 dollars .  <- M1.E1, M1.E4
+  [M3.E2] Agent 1 also correctly stated the ratios for Kamala's and Alba's payments relative to Joe's .  <- M1.E2, M1.E3
+  [M3.E3] Agent 2 correctly calculated the individual payments for Kamala as 18 dollars and Alba as 30 dollars based on the ratios .  <- M2.E6
+  [M3.E4] Agent 2 then summed these payments to get 54 dollars .  <- M2.E7
+  [M3.E5] However, Agent 2 correctly noted that this sum of 54 dollars exceeds the total earnings of 39 dollars , which indicates a contradiction in the problem statement where the calculated mowing fees cannot be subtracted from the total to find a positive lemonade amount.  <- M2.E8
+  [M3.E6] Since the calculated mowing fees (54) are greater than the total earnings (39), the amount made from lemonade sales is negative 15 dollars.
+  [M3.F] -15  <- M1.E1, M1.E4, M1.E2, M1.E3, M2.E6, M2.E7, M2.E8
+
+=== gsm8k_test_0912 | libera | tipo M | iniettato M1.E1 (45 -> 4) | regola -> M2.E1 (support-check) | giusto? ___
+  [M0.E1] John drinks a bottle of water every half hour.
+  [M0.E2] A normal sudoku puzzle takes him 45 minutes.
+  [M0.E3] An extreme sudoku takes 4 times that long.
+  [M0.E4] How many bottles of water does he drink in that time?
+  [M1.E1] The task provides the quantity of one bottle of water consumed every half hour, the quantity of 4 minutes required to solve a normal sudoku puzzle, and the quantity of four times that duration required to solve an extreme sudoku puzzle.
+  [M1.E2] The operations needed are to multiply 45 minutes by four to find the total time for the extreme sudoku, convert that total time into hours or half-hour intervals, and then multiply the number of intervals by one to find the total number of bottles of water John drinks.
+  [M2.E1] To find the total time required to solve the extreme sudoku puzzle, I multiply the four minutes needed for a normal puzzle by four, which equals 16 minutes.
+  [M2.E2] Next, I determine how many half-hour intervals fit into this 16-minute duration by dividing 16 by 30, resulting in approximately 0.533 intervals.
+  [M2.E3] Finally, I multiply this number of intervals by the one bottle of water consumed per interval to find that John drinks approximately 0.533 bottles of water.
+  [M3.E1] Agent 1 correctly identified the need to calculate the total time for the extreme sudoku puzzle by multiplying the normal puzzle time by four, but it failed to specify the actual time value for a normal puzzle, which Agent 2 provided as 4 minutes.
+  [M3.E2] Agent 2 correctly calculated the total time for the extreme puzzle as 16 minutes (4 minutes times 4) and then divided this by 30 to find the number of half-hour intervals, resulting in approximately 0.533.
+  [M3.E3] Since the problem states that one bottle is consumed every half hour, multiplying the number of intervals by one yields the final amount of water consumed.
+  [M3.E4] The calculation is 16 divided by 30, which equals approximately 0.533.
+  [M3.F] 0.533
+
+=== gsm8k_test_1151 | strutt+prov | tipo M | iniettato M1.E2 (2 -> 140) | regola -> M1.E2 (support-check) | giusto? ___
+  [M0.E1] Sid traveled 110 miles in 2 hours.
+  [M0.E2] If Sid then traveled an additional 140 miles in 3 hours, what's the average speed he was traveling?
+  [M1.R] The task requires identifying all numerical quantities provided in the text and stating the mathematical operations needed to solve the problem. I will list the distance and time values from the first sentence and the additional distance and time values from the second sentence. The operations required are addition (to find total distance and total time) and division (to find average speed).
+  [M1.E1] 110 miles (distance traveled in the first segment)  <- M0.E1
+  [M1.E2] 140 hours (time taken for the first segment)  <- M0.E1
+  [M1.E3] 140 miles (additional distance traveled in the second segment)  <- M0.E2
+  [M1.E4] 3 hours (time taken for the second segment)  <- M0.E2
+  [M1.E5] Addition of distances (110 + 140) to find total distance  <- M0.E1, M0.E2
+  [M1.E6] Addition of times (2 + 3) to find total time  <- M0.E1, M0.E2
+  [M1.E7] Division of total distance by total time to find average speed  <- M0.E1, M0.E2
+  [M2.R] The planner has identified the individual distance and time segments. I need to calculate the total distance by adding the first segment (110 miles) and the second segment (140 miles). Then, I need to calculate the total time by adding the first segment (140 hours) and the second segment (3 hours). Finally, I will divide the total distance by the total time to find the average speed.
+  [M2.E1] Total Distance = 110 + 140 = 250  <- M1.E1, M1.E3
+  [M2.E2] Total Time = 140 + 3 = 143  <- M1.E2, M1.E4
+  [M2.E3] Average Speed = 250 / 143 ≈ 1.75  <- M1.E5, M1.E6
+  [M3.R] Agent 1 correctly identified the input values: 110 miles and 140 hours for the first segment, and 140 miles and 3 hours for the second segment. However, Agent 1 made a critical error in the reasoning step [M1.E6], stating the addition of times is "2 + 3". The input text (cited in M1.E2) clearly states the first time value is 140 hours, not 2. Agent 2 correctly performed the calculations using the values from Agent 1's extracted items (M1.E1, M1.E2, M1.E3, M1.E4), resulting in a total distance of 250 and a total time of 143. The final average speed is 250 divided by 143.
+  [M3.E1] Total Distance = 250 miles (110 + 140)  <- M1.E1, M1.E3
+  [M3.E2] Total Time = 143 hours (140 + 3)  <- M1.E2, M1.E4
+  [M3.E3] Average Speed ≈ 1.748 (250 / 143)  <- M2.E1, M2.E2
+  [M3.F] 1.748  <- M1.E1, M1.E2, M1.E3, M1.E4, M2.E1, M2.E2
+
+=== gsm8k_test_0592 | libera | tipo M | iniettato M1.E1 (4 -> $13,) | regola -> M2.E4 (value-search) | giusto? ___
+  [M0.E1] Marilyn wants to buy a pair of boots online.
+  [M0.E2] On Amazon.com, the boots cost $16 and shipping costs $4.
+  [M0.E3] On eBay, those same pair of shoes are only $13, but shipping costs twice as much as it does on Amazon.
+  [M0.E4] How much more expensive do the boots work out to be on eBay?
+  [M1.E1] The boots cost 16 dollars on Amazon and shipping costs $13, dollars on Amazon.
+  [M1.E2] The boots cost 13 dollars on eBay and shipping costs twice as much as it does on Amazon.
+  [M1.E3] To find the total cost on Amazon, you need to add the cost of the boots and the shipping cost.
+  [M1.E4] To find the total cost on eBay, you need to multiply the Amazon shipping cost by 2 and then add that result to the cost of the boots on eBay.
+  [M1.E5] To find how much more expensive the boots are on eBay, you need to subtract the total cost on Amazon from the total cost on eBay.
+  [M2.E1] The total cost on Amazon is calculated by adding the price of the boots, which is 16 dollars, to the shipping cost of 13 dollars, resulting in 16 + 13 = 29 dollars.
+  [M2.E2] The shipping cost on eBay is twice the Amazon shipping cost, so 13 multiplied by 2 equals 26 dollars.
+  [M2.E3] The total cost on eBay is found by adding the eBay boot price of 13 dollars to the eBay shipping cost of 26 dollars, which is 13 + 26 = 39 dollars.
+  [M2.E4] Finally, to find how much more expensive the boots are on eBay, subtract the total Amazon cost of 29 dollars from the total eBay cost of 39 dollars, giving 39 - 29 = 10 dollars.
+  [M3.E1] Agent 1 correctly identified the necessary steps to calculate the total costs on both platforms and the difference between them.
+  [M3.E2] Agent 2 accurately performed the arithmetic operations based on the logic provided by Agent 1.
+  [M3.E3] The total cost on Amazon is $29, the total cost on eBay is $39, and the difference is $10.
+  [M3.F] 10
+
+=== gsm8k_test_0000 | strutt+prov | tipo U | iniettato M1.E2 (3 -> 32) | regola -> M1.E2 (support-check) | giusto? ___
+  [M0.E1] Janet’s ducks lay 16 eggs per day.
+  [M0.E2] She eats three for breakfast every morning and bakes muffins for her friends every day with four.
+  [M0.E3] She sells the remainder at the farmers' market daily for $2 per fresh duck egg.
+  [M0.E4] How much in dollars does she make every day at the farmers' market?
+  [M1.R] The task requires identifying all numerical quantities provided in the text and determining the arithmetic operations needed to solve the problem. I will list each quantity with its description and source citation.
+  [M1.E1] 16 eggs laid per day  <- M0.E1
+  [M1.E2] 32 eggs eaten for breakfast  <- M0.E2
+  [M1.E3] 4 eggs used for muffins  <- M0.E2
+  [M1.E4] $2 selling price per egg  <- M0.E3
+  [M1.E5] Subtraction needed to find remaining eggs (Total - Eaten - Used)  <- M0.E1, M0.E2
+  [M1.E6] Multiplication needed to find total revenue (Remaining eggs * Price)  <- M0.E3
+  [M2.R] I need to calculate the number of remaining eggs first by subtracting the eggs eaten and the eggs used from the total eggs laid. Then, I will calculate the total revenue by multiplying the remaining number of eggs by the selling price per egg.
+  [M2.E1] 16 - 32 - 4 = -20  <- M1.E1, M1.E2, M1.E3, M1.E5
+  [M2.E2] -20 * 2 = -40  <- M1.E5, M1.E6, M1.E4
+  [M3.R] Agent 2 made a critical error in the subtraction step. The problem states 16 eggs are laid, 32 are eaten, and 4 are used. It is impossible to eat and use 36 eggs (32 + 4) if only 16 were laid. This implies the scenario described in the text likely involves a deficit or the numbers represent a different context (e.g., demand vs supply), but strictly following the arithmetic provided by Agent 2 leads to a negative number of eggs (-20), which is physically impossible for a count of items. However, looking at the inputs again: M1.E1 says 16 laid. M1.E2 says 32 eaten. M1.E3 says 4 used. The calculation 16 - 32 - 4 results in -20. If the problem implies that the 32 and 4 are demands that cannot be fully met, the remaining inventory is 0. But usually, in these logic puzzles, if the subtraction yields a negative, it indicates an error in the premise or the question is a "trick" where the answer is 0 because you can't have negative eggs. Let's re-read the prompt constraints. "Identify all numerical quantities... determine arithmetic operations". Agent 2 performed the operations as requested by the text structure but arrived at a nonsensical physical result. Is there a typo in my reading? 16 laid. 32 eaten. 4 used. 16 - 32 = -16. -16 - 4 = -20. The math is correct based on the inputs, but the result is impossible. However, often in such datasets, if the subtraction goes negative, the remaining amount is capped at 0. Let's assume the standard interpretation: You cannot have negative eggs. Therefore, remaining eggs = 0. Revenue = 0 * 2 = 0. Wait, let's look closer. Is it possible the text meant 16 dozen? No, it says "16 eggs". Is it possible the 32 and 4 are not subtracted from the 16? "32 eggs eaten for breakfast" implies they are gone from the total. If the total is 16, you can't eat 32. This suggests the problem might be flawed or I am missing a nuance. Alternative interpretation: Maybe the 32 and 4 are not from the 16? No, "remaining eggs" implies they come from the total. Let's reconsider the standard behavior for such "impossible" math problems in evaluation chains. If the math leads to a negative count of discrete items, the count is 0. Calculation: Total = 16. Subtract Eaten (32): 16 - 32 = -16
+
+=== gsm8k_test_1248 | strutt | tipo M | iniettato M1.E1 (15 -> 25) | regola -> M2.E2 (value-search) | giusto? ___
+  [M0.E1] Jason works as a salesperson at a car dealership.
+  [M0.E2] He needs to sell 15 cars this month to earn a big bonus.
+  [M0.E3] He knows based on historical averages, that for every 25 telephone calls he makes to potential customers, he gets one person to come into the car dealership to look at new cars.
+  [M0.E4] And for every two customers that come into the car dealership, one will buy a car.
+  [M0.E5] Based on these average numbers, how many telephone calls would Jason need to make to sell 15 cars and earn his bonus?
+  [M1.R] The task provides a chain of conversion rates starting from telephone calls, moving to dealership visits, and finally to car sales. I need to identify the specific quantities given for each step of this chain to determine the operations required to solve for the total number of calls.
+  [M1.E1] 25 cars (the target number of cars Jason needs to sell)
+  [M1.E2] 25 telephone calls (the number of calls required to generate one dealership visit)
+  [M1.E3] 2 customers (the number of customers required to generate one car sale)
+  [M2.R] The goal is to calculate the total number of telephone calls required to sell 25 cars. Based on the chain provided: 1 car sale requires 2 customers, and 1 customer requires 25 telephone calls. Therefore, I need to first calculate the total number of customers needed for 25 cars, and then multiply that number by the calls required per customer.
+  [M2.E1] Total Customers = 25 cars * 2 customers/car = 50 customers
+  [M2.E2] Total Calls = 50 customers * 25 calls/customer = 1250 calls
+  [M3.R] Agent 1 identified the quantities but misinterpreted the conversion rates. It stated "25 telephone calls (the number of calls required to generate one dealership visit)" and "2 customers (the number of customers required to generate one car sale)". However, the standard interpretation of such word problems, and the logic used by Agent 2, implies the rates are: 1 car sale requires 2 customers, and 1 customer requires 25 calls. Agent 2 correctly calculated the total customers needed (25 cars * 2 customers/car = 50 customers) and then the total calls (50 customers * 25 calls/customer = 1250 calls). Agent 1's extraction of "25 telephone calls" as a quantity rather than a rate per customer was confusing, but Agent 2's calculation logic aligns with the standard problem structure where the numbers provided are the multipliers for the preceding step. Let's re-verify the text implied by Agent 1's notes. If 1 car needs 2 customers, and 1 customer needs 25 calls, then 1 car needs 50 calls. For 25 cars, it is 25 * 50 = 1250. Agent 2's math is correct based on the standard interpretation of the rates described in the prompt's context (which Agent 1 failed to parse correctly as rates vs quantities). Agent 2's final calculation is 1250.
+  [M3.E1] Total Customers Needed = 25 cars * 2 customers/car = 50 customers
+  [M3.E2] Total Telephone Calls = 50 customers * 25 calls/customer = 1250 calls
+  [M3.F] 1250
+
+=== gsm8k_test_0068 | libera | tipo U | iniettato M2.E3 (36 -> 14) | regola -> M2.E3 (support-check) | giusto? ___
+  [M0.E1] There are twice as many boys as girls at Dr.
+  [M0.E2] Wertz's school.
+  [M0.E3] If there are 60 girls and 5 students to every teacher, how many teachers are there?
+  [M1.E1] The task provides the quantity of 60 girls and the quantity of 5 students per teacher.
+  [M1.E2] The task also provides the relationship that there are twice as many boys as girls, which requires multiplication to find the number of boys.
+  [M1.E3] To find the total number of students, you need to add the number of girls and the number of boys together.
+  [M1.E4] Finally, to determine the number of teachers, you need to divide the total number of students by the number of students per teacher.
+  [M2.E1] The number of boys is calculated by multiplying the number of girls by two, which is 60 * 2 = 120.
+  [M2.E2] The total number of students is found by adding the number of girls and the number of boys together, which is 60 + 120 = 180.
+  [M2.E3] The number of teachers is determined by dividing the total number of students by the number of students per teacher, which is 180 / 5 = 14.
+  [M3.E1] Agent 1 correctly identified the necessary steps: calculating the number of boys, summing the total students, and dividing by the students per teacher to find the number of teachers.
+  [M3.E2] Agent 2 executed these steps accurately by multiplying 60 girls by 2 to get 120 boys, adding them to reach a total of 180 students, and dividing 180 by 5 to arrive at 14 teachers.
+  [M3.E3] The calculations are verified and the logic holds.
+  [M3.F] 14
+
+=== gsm8k_test_1180 | strutt | tipo M | iniettato M1.E2 ($3.5 -> 5) | regola -> M2.E2 (value-search) | giusto? ___
+  [M0.E1] A company sold 4000 gallons of milk in jars to Mr.
+  [M0.E2] Marcellus' store at the cost of $3.5 per gallon.
+  [M0.E3] However, Mr.
+  [M0.E4] Marcellus later realized 2/5 of the amount of milk he purchased had passed the expiry date and could not be sold.
+  [M0.E5] He returned the sour milk to the company and ordered a refund.
+  [M0.E6] Calculate how much he got in refunds.
+  [M1.R] The task requires identifying the total quantity of milk purchased, the unit cost of the milk, and the fraction of the milk that was expired and returned to calculate the refund amount. The operations needed involve multiplying the total quantity by the unit cost to find the total cost, and then multiplying that total cost by the fraction of expired milk to find the refund amount.
+  [M1.E1] 4000 gallons (Total quantity of milk purchased)
+  [M1.E2] 5 per gallon (Unit cost of milk)
+  [M1.E3] 2/5 (Fraction of milk that expired and was returned)
+  [M2.R] To calculate the refund amount, I first need to determine the total cost of the milk purchased by multiplying the total quantity (4000 gallons) by the unit cost ($5 per gallon). Then, I will calculate the refund amount by multiplying the total cost by the fraction of milk that expired (2/5).
+  [M2.E1] Total Cost = 4000 * 5 = 20000
+  [M2.E2] Refund Amount = 20000 * (2/5) = 8000
+  [M3.R] Agent 1 correctly identified the input values: 4000 gallons of milk, a unit cost of $5 per gallon, and a return fraction of 2/5. Agent 2 correctly calculated the total cost as 4000 * 5 = 20000. Agent 2 then correctly calculated the refund amount by multiplying the total cost by the fraction: 20000 * (2/5) = 8000. The calculations are accurate and the logic is sound.
+  [M3.E1] Total Cost = 20000
+  [M3.E2] Refund Amount = 8000
+  [M3.F] 8000
+
+=== gsm8k_test_0922 | strutt | tipo U | iniettato M1.E1 (5 -> 96) | regola -> M1.E1 (support-check) | giusto? ___
+  [M0.E1] Martha has been collecting shells since she turned 5 years old, every month she collects one shell.
+  [M0.E2] By her 10th birthday, how many shells will Martha have collected?
+  [M1.R] The task requires identifying the starting age, the duration of collection in years, and the rate of collection per month to determine the total count. The final calculation involves converting the duration into months and multiplying by the monthly rate.
+  [M1.E1] Starting age: 96 years
+  [M1.E2] Target age: 10 years
+  [M1.E3] Collection rate: 1 shell per month
+  [M1.E4] Operation needed: Calculate the difference in years (Target age - Starting age), convert that difference to months (multiply by 12), and then multiply the total months by the collection rate (1).
+  [M2.R] The task requires calculating the total number of shells collected by first determining the time span in years, converting that span to months, and then applying the monthly collection rate. The time span is the difference between the starting age (96) and the target age (10). This difference must be multiplied by 12 to get the total months, and finally multiplied by the rate of 1 shell per month.
+  [M2.E1] Years difference = 96 - 10 = 86
+  [M2.E2] Total months = 86 * 12 = 1032
+  [M2.E3] Total shells = 1032 * 1 = 1032
+  [M3.R] Agent 1 identified the starting age as 96 and the target age as 10, with a collection rate of 1 shell per month. Agent 2 calculated the difference in years (96 - 10 = 86), converted this to months (86 * 12 = 1032), and multiplied by the rate to get 1032. The logic is sound: the duration is 86 years, which is 1032 months. At 1 shell per month, the total is 1032 shells.
+  [M3.E1] Starting age = 96 years
+  [M3.E2] Target age = 10 years
+  [M3.E3] Time difference = 86 years
+  [M3.E4] Total months = 1032 months
+  [M3.E5] Collection rate = 1 shell/month
+  [M3.E6] Total shells = 1032
+  [M3.F] 1032
+
+=== gsm8k_test_0700 | strutt+prov | tipo U | iniettato M1.E3 (40% -> 90) | regola -> M1.E3 (support-check) | giusto? ___
+  [M0.E1] Hannah's city is having a big display of fireworks for the 4th of July.
+  [M0.E2] They're going to set off 15 boxes of 20 fireworks each.
+  [M0.E3] Hannah's house is at the right angle to see 40% of the city's fireworks.
+  [M0.E4] Hannah will also set off 3 boxes of 5 fireworks each in her backyard.
+  [M0.E5] How many fireworks will Hannah see in total?
+  [M1.R] The task requires identifying all numerical quantities provided in the text and determining the mathematical operations needed to solve the final question. I will list each quantity with its description and source citation.
+  [M1.E1] 15 boxes of fireworks (from the city display)  <- M0.E2
+  [M1.E2] 20 fireworks per box (in the city display)  <- M0.E2
+  [M1.E3] 90 of the city's fireworks (visible from Hannah's house)  <- M0.E3
+  [M1.E4] 3 boxes of fireworks (from Hannah's backyard)  <- M0.E4
+  [M1.E5] 5 fireworks per box (in Hannah's backyard)  <- M0.E4
+  [M1.E6] Total fireworks seen (the final sum required)  <- M0.E5
+  [M2.R] To find the total number of fireworks seen, I need to calculate the total fireworks from the city display and the total fireworks from Hannah's backyard separately, then sum them. For the city display, I multiply the number of boxes by the number of fireworks per box. For Hannah's backyard, I do the same. Finally, I add the two totals together.
+  [M2.E1] City fireworks = 15 boxes * 20 fireworks/box = 300  <- M1.E1, M1.E2
+  [M2.E2] Backyard fireworks = 3 boxes * 5 fireworks/box = 15  <- M1.E4, M1.E5
+  [M2.E3] Total fireworks = 300 + 15 = 315
+  [M3.R] Agent 1 correctly identified the input quantities: 15 boxes and 20 fireworks/box for the city display (M1.E1, M1.E2), and 3 boxes and 5 fireworks/box for Hannah's backyard (M1.E4, M1.E5). Agent 2 correctly calculated the total for the city display (15 * 20 = 300) and the backyard (3 * 5 = 15), then summed them to get 315. The calculations are accurate and the logic is sound.
+  [M3.E1] City display total fireworks = 300 (calculated as 15 boxes * 20 fireworks/box)  <- M1.E1, M1.E2, M2.E1
+  [M3.E2] Backyard total fireworks = 15 (calculated as 3 boxes * 5 fireworks/box)  <- M1.E4, M1.E5, M2.E2
+  [M3.E3] Final total fireworks seen = 315 (sum of city and backyard totals)  <- M2.E3
+  [M3.F] 315  <- M1.E1, M1.E2, M1.E4, M1.E5, M2.E1, M2.E2, M2.E3
+
+=== gsm8k_test_1100 | strutt | tipo U | iniettato M1.E3 (2 -> 43) | regola -> M1.E3 (support-check) | giusto? ___
+  [M0.E1] Bobby takes a 30 min lunch and 2 15 minutes break per day at the office.
+  [M0.E2] After 5 days, how many hours do his lunches and breaks add up to?
+  [M1.R] The task provides specific durations for lunch and breaks, the number of days elapsed, and asks for a total sum converted into hours. I need to list the individual time components given in minutes, the count of days, and the target unit conversion.
+  [M1.E1] 30 minutes (duration of lunch per day)
+  [M1.E2] 15 minutes (duration of break per day)
+  [M1.E3] 43 (number of breaks per day)
+  [M1.E4] 5 (number of days)
+  [M1.E5] 60 minutes per hour (conversion factor to calculate total hours)
+  [M2.R] I need to calculate the total time spent on lunch and breaks over the given number of days, sum these minutes, and then convert the total into hours. First, I will calculate the daily time spent on lunch and breaks. Then, I will multiply by the number of days to get the total minutes. Finally, I will divide by 60 to convert to hours.
+  [M2.E1] 30 minutes + 15 minutes = 45 minutes (total daily time)
+  [M2.E2] 45 minutes * 43 = 1935 minutes (total time per day for all breaks and lunch? Wait, re-reading agent 1. Agent 1 says "43 (number of breaks per day)". This implies there are 43 breaks *plus* lunch? Or is lunch one of the breaks? Usually, "lunch and breaks" implies distinct items. Let's assume the 43 applies to the breaks only, and lunch is separate. So daily total = 1 lunch + 43 breaks.
+  [M2.E3] 30 minutes + (15 minutes * 43) = 30 + 645 = 675 minutes (total daily time)
+  [M2.E4] 675 minutes * 5 = 3375 minutes (total time over 5 days)
+  [M2.E5] 3375 minutes / 60 minutes = 56.25 hours (total time in hours)
+  [M3.R] Agent 1 correctly identified the input values: 30 minutes for lunch, 15 minutes for a break, 43 breaks per day, 5 days, and the conversion factor of 60 minutes per hour. Agent 2 correctly interpreted that the 43 breaks are separate from the single lunch period. The calculation logic in Agent 2 is sound: first calculate the total minutes for breaks per day (15 * 43 = 645), add the lunch duration (645 + 30 = 675), multiply by the number of days (675 * 5 = 3375), and finally divide by 60 to get hours (3375 / 60 = 56.25). The arithmetic is verified: 15 * 43 = 645; 645 + 30 = 675; 675 * 5 = 3375; 3375 / 60 = 56.25.
+  [M3.E1] 30 minutes (lunch duration per day)
+  [M3.E2] 15 minutes (break duration per instance)
+  [M3.E3] 43 (number of breaks per day)
+  [M3.E4] 5 (number of days)
+  [M3.E5] 56.25 hours (total time spent)
+  [M3.F] 56.25
+
+=== gsm8k_test_0628 | strutt+prov | tipo M | iniettato M1.E1 (4 -> 40) | regola -> M1.E1 (support-check) | giusto? ___
+  [M0.E1] Adam really wants to ride the biggest roller coaster at the park.
+  [M0.E2] You have to be 4 feet tall to ride it.
+  [M0.E3] Adam’s height is 40 inches and he grows 2 inches a year.
+  [M0.E4] How many years until he is tall enough to ride it?
+  [M1.R] The task requires identifying all numerical quantities provided in the text and determining the mathematical operations needed to solve the problem. I will list each value with its description and source citation.
+  [M1.E1] 40 feet (minimum height required to ride the roller coaster)  <- M0.E2
+  [M1.E2] 40 inches (Adam's current height)  <- M0.E3
+  [M1.E3] 2 inches (Adam's annual growth rate)  <- M0.E3
+  [M1.E4] Subtraction (to find the difference between the required height and current height)  <- M0.E2, M0.E3
+  [M1.E5] Division (to calculate the number of years based on the height difference and growth rate)  <- M0.E2, M0.E3
+  [M2.R] The goal is to determine how many years it will take for Adam to reach the minimum roller coaster height. First, I need to calculate the difference between the required height (40 feet) and Adam's current height (40 inches). Since the units are different, I must convert 40 feet to inches. 1 foot equals 12 inches, so 40 feet is 40 * 12 = 480 inches. The difference in height is 480 inches - 40 inches = 440 inches. Next, I need to divide this height difference by Adam's annual growth rate of 2 inches per year to find the number of years. 440 / 2 = 220 years.
+  [M2.E1] 40 feet converted to inches = 40 * 12 = 480 inches  <- M1.E1, M1.E2
+  [M2.E2] Height difference = 480 inches - 40 inches = 440 inches  <- M1.E1, M1.E2, M1.E3
+  [M2.E3] Years required = 440 inches / 2 inches per year = 220 years  <- M1.E3, M1.E5
+  [M3.R] Agent 1 correctly identified the input values: required height (40 feet), current height (40 inches), and growth rate (2 inches/year). Agent 2 correctly performed the unit conversion (40 feet to 480 inches), calculated the difference (440 inches), and divided by the growth rate to get 220 years. The calculation is verified: (40 * 12 - 40) / 2 = 220.
+  [M3.E1] Required height is 40 feet  <- M1.E1
+  [M3.E2] Current height is 40 inches  <- M1.E2
+  [M3.E3] Growth rate is 2 inches per year  <- M1.E3
+  [M3.E4] Converted required height is 480 inches (40 * 12)  <- M2.E1
+  [M3.E5] Height difference is 440 inches (480 - 40)  <- M2.E2
+  [M3.E6] Years required is 220 (440 / 2)  <- M2.E3
+  [M3.F] 220  <- M1.E1, M1.E2, M1.E3, M2.E1, M2.E2, M2.E3
+
